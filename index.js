@@ -3,21 +3,16 @@ const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path')
-const htmlGenerator = require('./src/htmlGenerator')
+const path = require('path');
+const htmlGenerator = require('./src/htmlGenerator');
 
 const team = [];
-
-const init = () => {
-	console.log('welcome to my company')
-	callQuestion();
-}
 
 const callQuestion = () => {
 	inquirer.prompt({
 		type: 'list',
 		name: 'role',
-		message: 'What type of employee would you like to add?',
+		message: 'Who would you like to add to your team?',
 		choices: ['Intern', 'Engineer', 'Manager', 'None'],
 	}).then(({role}) => {
 		if (role === 'Intern') {
@@ -31,7 +26,7 @@ const callQuestion = () => {
 			if (!fs.existsSync(targetFolder)) {
 				fs.mkdirSync(targetFolder);
 			}
-			fs.writeFileSync(path.join(targetFolder, 'index.html'), htmlGenerator(team), 'utf8')
+			fs.writeFileSync(path.join(targetFolder, 'index.html'), htmlGenerator(team), 'utf8');
 		}
 	})
 }
@@ -57,7 +52,7 @@ const manQuestions = [
 		name: 'office',
 		message: 'What is this manager\'s office number?'
 	}
-]
+];
 
 const intQuestions = [
 	{
@@ -80,7 +75,7 @@ const intQuestions = [
 		name: 'school',
 		message: 'What school does this intern attend?'
 	}
-]
+];
 
 const engQuestions = [
 	{
@@ -103,7 +98,7 @@ const engQuestions = [
 		name: 'github',
 		message: 'What is this engineer\'s GitHub username?'
 	}
-]
+];
 
 const addManager = () => {
 	inquirer.prompt(manQuestions).then(answers => {
@@ -111,7 +106,7 @@ const addManager = () => {
 		team.push(manager);
 		callQuestion();
 	})
-}
+};
 
 const addIntern = () => {
 	inquirer.prompt(intQuestions).then(answers => {
@@ -119,7 +114,7 @@ const addIntern = () => {
 		team.push(intern);
 		callQuestion();
 	})
-}
+};
 
 const addEngineer = () => {
 	inquirer.prompt(engQuestions).then(answers => {
@@ -127,6 +122,6 @@ const addEngineer = () => {
 		team.push(engineer);
 		callQuestion();
 	})
-}
+};
 
-init();
+callQuestion();
