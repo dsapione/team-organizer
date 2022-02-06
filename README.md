@@ -1,6 +1,6 @@
 # Team Organizer
 
-[![walkthrough video](./assets/images/screenshot.jpg)](https://watch.screencastify.com/v/us5orrhxN8h61sd69x24)
+[![walkthrough video](./assets/images/screenshot.jpg)](https://watch.screencastify.com/v/Wc8JPcpfgMPFUpzFmwBu)
 
 ## Description
 
