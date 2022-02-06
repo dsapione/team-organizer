@@ -2,9 +2,9 @@
 
 const makeTeam = (team) => {
 	const htmlArry = [];
-	htmlArry.push(team.filter(employee => employee.getRole() === 'manager').map(manager => makeManagerCards(manager)));
-	htmlArry.push(team.filter(employee => employee.getRole() === 'engineer').map(engineer => makeEngineerCards(engineer)).join(''))
-	htmlArry.push(team.filter(employee => employee.getRole() === 'intern').map(intern => makeInternCards(intern)).join(''))
+	htmlArry.push(team.filter(employee => employee.getRole() === 'Manager').map(manager => makeManagerCards(manager)));
+	htmlArry.push(team.filter(employee => employee.getRole() === 'Engineer').map(engineer => makeEngineerCards(engineer)).join(''))
+	htmlArry.push(team.filter(employee => employee.getRole() === 'Intern').map(intern => makeInternCards(intern)).join(''))
 	return htmlArry.join('')
 }
 
@@ -87,9 +87,11 @@ module.exports = team => {
 			<h1 class="text-white bg-secondary mb-3" style="text-align: center;margin-top: 0.3em;padding-top: 0.7em;padding-bottom: 0.7em;">Team Orginizer</h1>
 		</div>
 	</header>
-	<div class="row row-cols-1 row-cols-md-2 g-4">
-	${makeTeam(team)}
-	</div>
+	<div class="container">
+		<div class="row row-cols-1 row-cols-md-2 g-4">
+		${makeTeam(team)}
+		</div>
+	</div>	
 </body>
 </html>`
 }
